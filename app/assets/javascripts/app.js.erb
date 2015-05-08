@@ -35,7 +35,8 @@
   	};
 
     $scope.filterByRank = function(element){
-      if ($scope.rank_filters.indexOf(element.sitter.rank) > -1)
+      filters = $scope.rank_filters + ","
+      if (filters.indexOf(element.sitter.rank + ",") > -1)
         return true;
       else
         return false;
