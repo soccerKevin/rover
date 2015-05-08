@@ -1,5 +1,13 @@
 # Rover Coding Project
 
+Getting Started
+it's a rails app which uses angular on the front end, and bootstrap for table like styling
+you need a server that can handle subdomains
+Click on the headers to sort. 1 time for ascending order, twice for descending
+Seperate rank filters with a comma
+thank you
+
+
 Rover.com was destroyed in a terrible Amazon and GitHub accident.
 Thankfully, no dogs were harmed, but we have to rebuild our site using data we retrieved from the Google search index.
 We'd like to:
