@@ -12,10 +12,10 @@ reviews.each do |row|
 			end_date: r[:end_date]
 		})
 
-	sitter = Sitter.where(name: r[:sitter]).first || Sitter.create!({ name: r[:sitter] })
+	sitter = Sitter.where(name: r[:sitter]).first || Sitter.create!({ name: r[:sitter], image: r[:sitter_image] })
 	stay.sitter_id = sitter.id
 
-	owner = Owner.where(name: r[:owner]).first || Owner.create!({ name: r[:owner], dogs: r[:dogs] })
+	owner = Owner.where(name: r[:owner]).first || Owner.create!({ name: r[:owner], image: r[:owner_image],dogs: r[:dogs] })
 	stay.owner_id = owner.id
 
 	stay.save
