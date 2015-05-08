@@ -1,2 +1,0 @@
-class SittersController < ApplicationController
-end

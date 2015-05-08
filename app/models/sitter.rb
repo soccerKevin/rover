@@ -4,7 +4,6 @@ class Sitter < ActiveRecord::Base
 	has_many :stays
 
 	def rank
-		# score * (10 - stays.count) + rating * (stays.count / 10)
 		c = self.stays.count
 		self.score * (10 - c) + self.rating * (c / 10)
 	end
