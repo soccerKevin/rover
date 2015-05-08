@@ -10,6 +10,12 @@
 	<li class="sitter-pic col-xs-1"
 		ng-click="sortBy(SITTER)">
 	</li>
+	<li class="sitter-rank col-xs-2">
+		<div ng-click="sortBy(RANK)">
+			Sitter Rank
+		</div>
+		<input type="text" name="rank-filter" ng-model="rank_filters">
+	</li>
 	<li class="owner-name col-xs-1"
 		ng-click="sortBy(OWNER)">
 		Owner
