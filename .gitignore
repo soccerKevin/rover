@@ -15,6 +15,9 @@
 *.swp
 
 # ignore .DS_Store
-.DS_Store
+*.DS_Store
 **/.DS_Store
 **/**/.DS_Store
+
+# ignore vendor bundle files
+/vendor/*
