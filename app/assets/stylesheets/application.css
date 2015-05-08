@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+img{
+	width:100%;
+}
+
+#stays{
+	position:relative;
+}
+
+.stays-list{
+	margin-top:20px;
+	position:relative;
+}
+
+ul.stay-row{
+	margin:0;
+	padding:5px 0;
+	border:solid 1px black;
+}
+
+ul.stay-row.header{
+	margin:0 auto;
+	padding:10px 0;
+	border:solid 1px black;
+	border-bottom:solid 4px black;
+	position:fixed;
+	background:white;
+	z-index:100;
+	max-width:1140px;
+}
+
+ul.stay-row.header li{
+	cursor:pointer;
+}
+
+ul.stay-row li{
+	overflow:hidden;
+	list-style-type: none;
+}
