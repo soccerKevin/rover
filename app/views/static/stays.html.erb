@@ -1,30 +1,31 @@
-<div class="container" ng-controller="StaysController as stays">
-	<div class="list-group">
-		<div class="list-group-item" ng-repeat="stay in stays">
-			<div class="stay-element">
-				{{stay.rating}}
-			</div>
-			<div class="stay-element">
-				{{stay.sitter.name}}
-			</div>
-			<div class="stay-element">
-				{{stay.sitter.sitter_image}}
-			</div>
-			<div class="stay-element">
-				{{stay.owner.name}}
-			</div>
-			<div class="stay-element">
-				{{stay.owner.owner_image}}
-			</div>
-			<div class="stay-element">
-				{{stay.owner.dogs}}
-			</div>
-			<div class="stay-element">
-				{{stay.start_date}}
-			</div>
-			<div class="stay-element">
-				{{stay.end_date}}
-			</div>
+<div id="stays" class="container" ng-controller="StaysController as stays">
+		<stay-tabs></stay-tabs>
+		<div class="stays-list">
+			<ul class="row stay-row" ng-repeat="stay in stays | orderBy: order : descending">
+				<li class="rating col-xs-1">
+					{{stay.rating}}
+				</li>
+				<li class="sitter-name col-xs-2">
+					{{stay.sitter.name}}
+				</li>
+				<li class="sitter-pic col-xs-1">
+					<img ng-src="{{stay.sitter.image}}">
+				</li>
+				<li class="owner-name col-xs-2">
+					{{stay.owner.name}}
+				</li>
+				<li class="owner-pic col-xs-1">
+					<img ng-src="{{stay.owner.image}}">
+				</li>
+				<li class="dogs col-xs-3">
+					{{stay.owner.dogs | replace : ['|', ', ']}}
+				</li>
+				<li class="start-date col-xs-1">
+					{{stay.start_date}}
+				</li>
+				<li class="end-date col-xs-1">
+					{{stay.end_date}}
+				</li>
+			</ul>
 		</div>
-	</div>
 </div>
