@@ -21,7 +21,7 @@ class StayApiTest < ActionDispatch::IntegrationTest
 		assert_equal 200, response.status
 
 		stay = json response.body
-		assert_equal @stay.name, stay[:name]
+		assert_equal @stay.rating, stay[:rating]
 		assert_equal @sitter.id, stay[:sitter_id]
 	end
 end
