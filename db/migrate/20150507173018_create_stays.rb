@@ -6,6 +6,7 @@ class CreateStays < ActiveRecord::Migration
     	t.text :review
     	t.date :start_date
     	t.date :end_date
+      t.integer :sitter_id
 
       t.timestamps null: false
     end

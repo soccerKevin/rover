@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150507173018) do
     t.text     "review"
     t.date     "start_date"
     t.date     "end_date"
+    t.integer  "sitter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
