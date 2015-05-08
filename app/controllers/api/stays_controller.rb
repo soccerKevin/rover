@@ -6,6 +6,6 @@ class API::StaysController < ApplicationController
 
 	def show
 		@stay = Stay.includes(:sitter).find(params[:id])
-		render json: @stay.as_json(include: [:sitter]), status: :ok
+		render json: @stay.as_json(include: [:sitter, :owner]), status: :ok
 	end
 end
