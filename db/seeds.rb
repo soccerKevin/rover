@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+csv = File.read('reviews.csv')
+reviews = CSV.parse(csv, :headers => true)
+reviews.each do |row|
+	r = row.to_hash.symbolize_keys
+	stay = Stay.new({
+			rating: r[:rating],
+			dogs: r[:dogs],
+			review: r[:text],
+			start_date: r[:start_date],
+			end_date: r[:end_date]
+		})
+	sitter = Sitter.where(name: r[:sitter]).first || Sitter.create!({ name: r[:sitter] })
+	stay.sitter_id = sitter.id
+	stay.save
+end
