@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     resources :sitters
     resources :owners
   end
+
+  root 'static#index'
 end
