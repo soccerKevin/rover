@@ -6,8 +6,18 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def do_setup(has_host = false)
+    host! 'api.rover.com' if has_host
+    @weeks_ago = DateTime.now - 14
+    @last_week = DateTime.now - 7
+    @sitter = create_sitter
+    @owner = create_owner
+    @stay = create_stay(@sitter, @owner, @weeks_ago, @last_week)
+    @stay2 = create_stay(@sitter, @owner, @weeks_ago - 14, @last_week - 14)
+  end
+
   def create_sitter
-  	Sitter.create!(name: 'First Sitter', rank: 5)
+  	Sitter.create!(name: 'First Sitter')
   end
 
   def create_owner

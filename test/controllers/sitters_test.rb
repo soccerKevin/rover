@@ -2,13 +2,7 @@ require 'test_helper'
 
 class SitterApiTest < ActionDispatch::IntegrationTest
 	setup do
-		host! 'api.rover.com'
-		@weeks_ago = DateTime.now - 14
-		@last_week = DateTime.now - 7
-		@sitter = create_sitter
-		@owner = create_owner
-		@stay = create_stay(@sitter, @owner, @weeks_ago, @last_week)
-		@stay2 = create_stay(@sitter, @owner, @weeks_ago - 14, @last_week - 14)
+		do_setup true
 	end
 
 	test 'As a user, I want a list of all the sitters so I can choose the best one' do
