@@ -1,10 +1,11 @@
 # Rover Coding Project
 
-Getting Started
-it's a rails app which uses angular on the front end, and bootstrap for table like styling
-you need a server that can handle subdomains
-Click on the headers to sort. 1 time for ascending order, twice for descending
-Seperate rank filters with a comma
+##Getting Started
+
+-it's a rails app which uses angular on the front end, and bootstrap for table like styling
+-you need a server that can handle subdomains
+-Click on the headers to sort. 1 time for ascending order, twice for descending
+-Seperate rank filters with a comma
 thank you
 
 
