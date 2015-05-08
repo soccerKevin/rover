@@ -6,8 +6,9 @@ class SitterApiTest < ActionDispatch::IntegrationTest
 		@weeks_ago = DateTime.now - 14
 		@last_week = DateTime.now - 7
 		@sitter = create_sitter
-		@stay = create_stay(@sitter, @weeks_ago, @last_week)
-		@stay2 = create_stay(@sitter, @weeks_ago - 14, @last_week - 14)
+		@owner = create_owner
+		@stay = create_stay(@sitter, @owner, @weeks_ago, @last_week)
+		@stay2 = create_stay(@sitter, @owner, @weeks_ago - 14, @last_week - 14)
 	end
 
 	test 'As a user, I want a list of all the sitters so I can choose the best one' do
