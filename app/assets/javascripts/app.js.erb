@@ -1,0 +1,65 @@
+(function(){
+	var app = angular.module('rover', []);
+
+	app.filter('replace', function(){
+		return function(input, params){
+			erase = params[0];
+			to = params[1];
+			return input.split(erase).join(to)
+		}
+	});
+
+	app.config(['$httpProvider', function($httpProvider){
+    $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
+  }]);
+
+  app.controller('StaysController', ['$http', '$scope', function($http, $scope){
+  	$scope.RATING = 'rating';
+		$scope.SITTER = 'sitter.name';
+		$scope.OWNER = 'owner.name';
+		$scope.START_DATE = 'start_date';
+		$scope.END_DATE = 'end_date';
+
+  	$scope.stays = [];
+  	$scope.order = $scope.RATING;
+  	$scope.descending = false;
+
+  	$scope.sortBy = function(order){
+  		if($scope.order == order){
+  			$scope.descending = !$scope.descending
+  		}else{
+  			$scope.order = order;
+  			$scope.descending = false;
+  		}
+  	};
+
+  	$http.get('/stays')
+  		.success(function(data){
+  			$scope.stays = data;
+  		})
+  		.error(function(){
+
+  		});
+  }]);
+
+  app.directive('stayTabs', function(){
+  	return {
+  		restrict: 'E',
+  		templateUrl: "<%= asset_path 'templates/stays/stay-tabs.html' %>",
+  		controller: function(){
+  			this.RATING = 1;
+  			this.SITTER = 2;
+  			this.OWNER = 3;
+  			this.START_DATE = 4;
+  			this.END_DATE = 5;
+
+  			this.tab = this.RATING;
+
+  			this.setTab = function(tab){
+  				this.tab = tab;
+  			}
+  		},
+  		controllerAs: "stayTab"
+  	}
+  });
+})()
