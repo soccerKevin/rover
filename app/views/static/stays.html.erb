@@ -1,7 +1,7 @@
 <div id="stays" class="container" ng-controller="StaysController as stays">
 		<stay-tabs></stay-tabs>
 		<div class="stays-list">
-			<ul class="row stay-row" ng-repeat="stay in stays | orderBy: order : descending">
+			<ul class="row stay-row" ng-repeat="stay in stays | filter: filterByRank | orderBy: order : descending">
 				<li class="rating col-xs-1">
 					{{stay.rating}}
 				</li>
@@ -10,6 +10,9 @@
 				</li>
 				<li class="sitter-pic col-xs-1">
 					<img ng-src="{{stay.sitter.image}}">
+				</li>
+				<li class="sitter-pic col-xs-1">
+					{{stay.sitter.rank}}
 				</li>
 				<li class="owner-name col-xs-1">
 					{{stay.owner.name}}
