@@ -11,7 +11,12 @@ reviews.each do |row|
 			start_date: r[:start_date],
 			end_date: r[:end_date]
 		})
+
 	sitter = Sitter.where(name: r[:sitter]).first || Sitter.create!({ name: r[:sitter] })
 	stay.sitter_id = sitter.id
+
+	owner = Owner.where(name: r[:owner]).first || Owner.create!({ name: r[:owner] })
+	stay.owner_id = owner.id
+
 	stay.save
 end

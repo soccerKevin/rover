@@ -10,13 +10,18 @@ class ActiveSupport::TestCase
   	Sitter.create!(name: 'First Sitter', rank: 5)
   end
 
-  def create_stay(sitter, start_date, end_date)
+  def create_owner
+    Owner.create!(name: 'First Owner', dogs: "Rickert|Daisy|Spot")
+  end
+
+  def create_stay(sitter, owner, start_date, end_date)
   	Stay.create!(
 							rating: 5,
 							review: "Great Sitter! My Dogs seem happy!",
 							start_date: start_date,
 							end_date: end_date,
-							sitter_id: sitter.id
+							sitter_id: sitter.id,
+              owner_id: owner.id
 						)
   end
 
