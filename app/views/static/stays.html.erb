@@ -1,0 +1,30 @@
+<div class="container" ng-controller="StaysController as stays">
+	<div class="list-group">
+		<div class="list-group-item" ng-repeat="stay in stays">
+			<div class="stay-element">
+				{{stay.rating}}
+			</div>
+			<div class="stay-element">
+				{{stay.sitter.name}}
+			</div>
+			<div class="stay-element">
+				{{stay.sitter.sitter_image}}
+			</div>
+			<div class="stay-element">
+				{{stay.owner.name}}
+			</div>
+			<div class="stay-element">
+				{{stay.owner.owner_image}}
+			</div>
+			<div class="stay-element">
+				{{stay.owner.dogs}}
+			</div>
+			<div class="stay-element">
+				{{stay.start_date}}
+			</div>
+			<div class="stay-element">
+				{{stay.end_date}}
+			</div>
+		</div>
+	</div>
+</div>
