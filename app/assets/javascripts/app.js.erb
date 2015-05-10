@@ -14,7 +14,8 @@
   }]);
 
   app.controller('StaysController', ['$http', '$scope', function($http, $scope){
-  	$scope.RATING = 'rating';
+    $scope.RATING = 'rating';
+  	$scope.RANK = 'sitter.rank';
 		$scope.SITTER = 'sitter.name';
 		$scope.OWNER = 'owner.name';
 		$scope.START_DATE = 'start_date';
@@ -35,8 +36,8 @@
   	};
 
     $scope.filterByRank = function(element){
-      filters = $scope.rank_filters + ","
-      if (filters.indexOf(element.sitter.rank + ",") > -1)
+      filters = " " + $scope.rank_filters + ","
+      if (filters.indexOf(" " + element.sitter.rank + ",") > -1)
         return true;
       else
         return false;
